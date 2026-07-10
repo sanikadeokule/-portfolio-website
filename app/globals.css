@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: oklch(0.97 0.008 30);
+  --surface: oklch(0.99 0.004 30);
+  --ink: oklch(0.25 0.03 25);
+  --soft: oklch(0.46 0.03 25);
+  --brand: oklch(0.42 0.13 25);
+  --line: oklch(0.87 0.015 30);
+  --amber: oklch(0.68 0.14 70);
+
+  /* Hero band — identical in both themes, always dark */
+  --hero-bg: oklch(0.27 0.08 25);
+  --hero-text: oklch(0.96 0.008 30);
+  --hero-muted: oklch(0.82 0.03 30);
+  --hero-accent: oklch(0.78 0.1 40);
+  --hero-line: oklch(0.45 0.06 25);
+  --hero-hover: oklch(0.33 0.09 25);
+}
+
+.dark {
+  --bg: oklch(0.22 0.02 25);
+  --surface: oklch(0.26 0.025 25);
+  --ink: oklch(0.94 0.01 30);
+  --soft: oklch(0.72 0.02 30);
+  --brand: oklch(0.72 0.12 30);
+  --line: oklch(0.35 0.03 25);
+  --amber: oklch(0.78 0.13 75);
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+.muted { color: var(--soft); }
+.rule { border-color: var(--line); }
+
+.terminal-caret {
+  display: inline-block;
+  width: 9px;
+  height: 1.1em;
+  background: oklch(0.78 0.1 40);
+  animation: blink 1s steps(1) infinite;
+  vertical-align: text-bottom;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

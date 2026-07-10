@@ -1,0 +1,8 @@
+# Auto-opens PRs when dependencies have security updates
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
